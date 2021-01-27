@@ -1,0 +1,18 @@
+.movieDetails {
+  display: flex;
+  justify-content: start;
+}
+
+.detailsList {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.genresList {
+  display: flex;
+}
+
+.genresItem:not(:first-child) {
+  margin-left: 10px;
+}
