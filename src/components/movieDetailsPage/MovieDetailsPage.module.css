@@ -1,6 +1,5 @@
 .movieDetails {
   display: flex;
-  justify-content: start;
 }
 
 .detailsList {
@@ -15,4 +14,36 @@
 
 .genresItem:not(:first-child) {
   margin-left: 10px;
+}
+
+.infoTitle {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+.infoContainer {
+  padding: 10px 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.infoLink {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  color: black;
+}
+
+.infoLink:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.infoLinkActive {
+  color: brown;
 }

@@ -22,8 +22,8 @@ export default class HomePage extends Component {
                 <h2>Trending today</h2>
                 <ul>
                     {popularMovies.map(movie => (
-                        <li key={movie.id}>
-                            <Link to={{pathname: `${match.url}movies/${movie.id}`, state: {from: this.props.location}}}>{movie.original_title}</Link>
+                        <li className={styles.item} key={movie.id}>
+                            <Link className={styles.link} to={{pathname: `${match.url}movies/${movie.id}`, state: {from: this.props.location}}}>{movie.original_title}</Link>
                         </li>
                     ))}
                 </ul>

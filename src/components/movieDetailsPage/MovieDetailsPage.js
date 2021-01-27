@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { NavLink, Route } from 'react-router-dom';
+import { NavLink, Route, Switch } from 'react-router-dom';
 // -----------------------------------------
 import Cast from '../cast/Cast';
 import Reviews from '../reviews/Reviews';
-import {fetchMovieDetails} from '../../services/tvApi';
 // -----------------------------------------
+import {fetchMovieDetails} from '../../services/tvApi';
 import styles from './MovieDetailsPage.module.css';
-import routes from '../../routes';
+import routes from '../../routes/routes';
 
 export default class MovieDetailsPage extends Component {
     state = {
@@ -38,9 +38,11 @@ export default class MovieDetailsPage extends Component {
             genres,
         } = this.state.details
 
+        const { url, path } = this.props.match;
+
         return (
             <>
-                <button className={styles.backBtn} type='button' onClick={this.handleGoBack }>Go back</button>
+                <button className={styles.backBtn} type='button' onClick={this.handleGoBack}>Go back</button>
                 <div className={styles.movieDetails}>
                     {poster_path && <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={title} width='250px' />}
                     <ul className={styles.detailsList}>
@@ -63,11 +65,29 @@ export default class MovieDetailsPage extends Component {
                         </li>
                     </ul>
                 </ div>
-                <div className={styles.addInform}>
-                    <NavLink to={routes.cast}>Cast</NavLink>
+                <div className={styles.infoContainer}>
+                    <h3 className={styles.infoTitle}>Additional information</h3>
+                    <NavLink
+                        to={`${url}/cast`}
+                        className={styles.infoLink}
+                        activeClassName={styles.infoLinkActive}
+                    >
+                        Cast
+                    </NavLink>
+                    <NavLink
+                        to={`${url}/reviews`}
+                        className={styles.infoLink}
+                        activeClassName={styles.infoLinkActive}
+                    >
+                        Reviews
+                    </NavLink>
                 </div>
+                    <Switch>
+                        <Route path={`${path}/cast`} component={Cast} />
+                        <Route path={`${path}/reviews`} component={Reviews} />
+                    </Switch>
             </>
-        )
+        );
     };
 };
 

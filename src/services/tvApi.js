@@ -17,3 +17,15 @@ export const fetchQuery = (query) => {
         .then(res => res.json())
         .then(data => data.results)
 };
+
+export const fetchCast = (id) => {
+  return fetch(`${baseUrl}/3/movie/${id}/credits?api_key=${API_KEY}&language=en-US`)
+    .then(res => res.json())
+    .then(data => data);
+};
+
+export const fetchReviews = (id) => {
+  return fetch(`${baseUrl}/3/movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`)
+    .then(res => res.json())
+    .then(data => data);
+};

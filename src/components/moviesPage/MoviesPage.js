@@ -50,14 +50,14 @@ export default class MoviesPage extends Component {
         const { movies } = this.state
         return (
             <>
-                <form onSubmit={this.handleSubmit}>
+                <form className={styles.form} onSubmit={this.handleSubmit}>
                     <input type='text' value={this.state.value} onChange={this.handleChange}/>
                     <button type='submit'>Search</button>
                 </form>
                 <ul>
                     {movies.map(movie => (
-                        <li key={movie.id}>
-                            <Link to={{pathname: `${this.props.match.url}/${movie.id}`, state: {from: this.props.location}}}>{movie.original_title}</Link>
+                        <li className={styles.item} key={movie.id}>
+                            <Link className={styles.link} to={{pathname: `${this.props.match.url}/${movie.id}`, state: {from: this.props.location}}}>{movie.original_title}</Link>
                         </li>
                     ))}
                 </ul>

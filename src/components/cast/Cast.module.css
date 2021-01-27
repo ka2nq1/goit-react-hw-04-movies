@@ -1,0 +1,32 @@
+.castContainer {
+  padding: 0 40px;
+}
+
+.castList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.castItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  padding: 0 25px;
+}
+
+.castName {
+  font-size: 18px;
+  margin: 10px 0;
+  font-weight: 600;
+}
+
+.castCharacter {
+  font-size: 13px;
+  width: 150px;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
