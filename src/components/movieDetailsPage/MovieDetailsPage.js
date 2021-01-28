@@ -6,7 +6,6 @@ import Reviews from '../reviews/Reviews';
 // -----------------------------------------
 import {fetchMovieDetails} from '../../services/tvApi';
 import styles from './MovieDetailsPage.module.css';
-import routes from '../../routes/routes';
 
 export default class MovieDetailsPage extends Component {
     state = {
@@ -21,10 +20,10 @@ export default class MovieDetailsPage extends Component {
     handleGoBack = () => {
         const { state } = this.props.location;
         const { push } = this.props.history;
-        if (state && state.from) {
+        if (state) {
             push(state.from);
         } else {
-            push(routes.movies)
+            push("/")
         };
     };
 
@@ -68,14 +67,14 @@ export default class MovieDetailsPage extends Component {
                 <div className={styles.infoContainer}>
                     <h3 className={styles.infoTitle}>Additional information</h3>
                     <NavLink
-                        to={`${url}/cast`}
+                        to={{ pathname: `${url}/cast`, state: {...this.props.location.state}}}
                         className={styles.infoLink}
                         activeClassName={styles.infoLinkActive}
                     >
                         Cast
                     </NavLink>
                     <NavLink
-                        to={`${url}/reviews`}
+                        to={{pathname: `${url}/reviews`, state: {...this.props.location.state}}}
                         className={styles.infoLink}
                         activeClassName={styles.infoLinkActive}
                     >
